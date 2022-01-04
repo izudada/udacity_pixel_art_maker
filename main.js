@@ -51,3 +51,6 @@ function colorGrid(action){
         action.target.setAttribute('style', 'background-color : '+colorInput+'');
     }
 }
+
+submitButton.addEventListener('click', makeGrid);
+pixelCanvas.addEventListener('click', colorGrid);
