@@ -27,11 +27,11 @@ A pixel art maker that:
 - CSS
 - Javascript
 
----
 
 ## How To Use
-   Drag and drop the index.html file on a browser.
----
+
+- Drag and drop the index.html file on a browser.
+
 
 ## References
 * [Udacity Nanodegree](https://www.udacity.com/course/intro-to-programming-nanodegree--nd000)
