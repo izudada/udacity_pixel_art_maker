@@ -40,3 +40,14 @@ function makeGrid(event) {
     event.preventDefault();
 }
 
+function colorGrid(action){
+    /*
+        A function to color each cell/td in the
+    */
+
+    // Select color input/value
+    var colorInput = document.querySelector('#colorPicker').value;
+    if (action.target.nodeName.toLowerCase() === 'td'){
+        action.target.setAttribute('style', 'background-color : '+colorInput+'');
+    }
+}
