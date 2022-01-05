@@ -4,12 +4,13 @@ var submitButton = document.getElementById('submit');
 // Select size inputs/values with explicit 
 var inputHeight = document.getElementById('inputHeight');
 var inputWidth = document.getElementById('inputWidth');
-var colorCounter = 0;
+var colorCounter = false;
 
 //  Select pixel canvas
 var pixelCanvas = document.querySelector('#pixelCanvas');
 
 function makeGrid(event) {
+    event.preventDefault();
     /*
         * @desc create a grid of squares 
         * @param int $width - number of squares representing the width/rows of the grid
@@ -21,16 +22,12 @@ function makeGrid(event) {
     */
    let height = inputHeight.value;
    let width = inputWidth.value;
-
-    let criteria = pixelCanvas.innerHTML;
-
-    // Condition to check if pixelCanvas is empty or not
-    if (criteria && colorCounter === 0){
+    if (pixelCanvas.hasChildNodes() && colorCounter == false){
         submitButton.removeEventListener('click', makeGrid);
-    }else if (criteria && colorCounter !== 0){
-        pixelCanvas.removeChild('tr');
+    }else if (pixelCanvas.hasChildNodes() && colorCounter == true){
+        pixelCanvas.innerHTML = "";
+        colorCounter = false;
     }else{
-        
         //  A loop to create the rows for the canvas
         for (var row = 1; row <= height; row++){
             var pixelRow = document.createElement('tr');
@@ -44,7 +41,7 @@ function makeGrid(event) {
         }
     }
     
-    event.preventDefault();
+
 }
 
 function colorGrid(action){
@@ -56,9 +53,11 @@ function colorGrid(action){
     var colorInput = document.querySelector('#colorPicker').value;
     if (action.target.nodeName.toLowerCase() === 'td'){
         action.target.setAttribute('style', 'background-color : '+colorInput+'');
-        colorCounter +=1;
+        colorCounter = true;
     }
+    submitButton.addEventListener('click', makeGrid);
 }
+
 
 submitButton.addEventListener('click', makeGrid);
 pixelCanvas.addEventListener('click', colorGrid);
