@@ -1,3 +1,5 @@
+'use strict';
+
 //  Get submit button
 var submitButton = document.getElementById('submit');
 
@@ -21,8 +23,8 @@ function makeGrid(event) {
 
 
     //  Select pixel canvas
-    var pixelCanvas = document.querySelector('#pixelCanvas');
-    var criteria = pixelCanvas.innerHTML
+    let pixelCanvas = document.querySelector('#pixelCanvas');
+    let criteria = pixelCanvas.innerHTML
 
     // Condition to check if pixelCanvas is empty or not
     if (criteria && colorCounter === 0){
