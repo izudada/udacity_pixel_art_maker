@@ -1,15 +1,23 @@
 //  Get submit button
 var submitButton = document.getElementById('submit');
 
+// Select size inputs/values with explicit 
+var inputHeight = document.getElementById('inputHeight');
+var inputWidth = document.getElementById('inputWidth');
+
 function makeGrid(event) {
     /*
-        The reason the below variables are instantiated within 
-        this function is to get their current value as they change
+        * @desc create a grid of squares 
+        * @param int $width - number of squares representing the width/rows of the grid
+        * @param int $height - number of squares representing the height/colomns of the grid
+        * @param DOM-element $pixelCanvas - The main area housing the pixel canvas
+        * @param str $criteria - Variable that stores content of pixelCanavas
+        * @param DOM-element $pixelRow - A tr element representing a row of the grid
+        * @param DOM-element $pixelCell - A td element representing a cell of the grid
     */
+   let height = inputHeight.value;
+   let width = inputWidth.value;
 
-    // Select size inputs/values with explicit 
-    var inputHeight = Number(document.getElementById('inputHeight').value);
-    var inputWidth = Number(document.getElementById('inputWidth').value);
 
     //  Select pixel canvas
     var pixelCanvas = document.querySelector('#pixelCanvas');
@@ -19,18 +27,14 @@ function makeGrid(event) {
     if (criteria){
         pixelCanvas.removeChild('tr')
     } else{
+        
         //  A loop to create the rows for the canvas
-        for (var row = 1; row <= inputHeight; row++){
-            //  Create new table row
+        for (var row = 1; row <= height; row++){
             var pixelRow = document.createElement('tr');
-            //  Append pixelRow to pixelCanvas
             pixelCanvas.appendChild(pixelRow);
 
-            //  A loop to create the columns for each respective pixelRow
-            for (var column = 1; column <= inputWidth; column++){
-                //  Create new pixel cell
+            for (var column = 1; column <= width; column++){
                 var pixelCell = document.createElement('td'); 
-                // Append pixelCell to pixelRow
                 pixelRow.appendChild(pixelCell);
             }
 
@@ -42,10 +46,10 @@ function makeGrid(event) {
 
 function colorGrid(action){
     /*
-        A function to color each cell/td in the
+        * @desc adds a selected color to a cell on the grid 
+        * @param str $colorInput - stores the selected color which is to be painted on the cell.
     */
 
-    // Select color input/value
     var colorInput = document.querySelector('#colorPicker').value;
     if (action.target.nodeName.toLowerCase() === 'td'){
         action.target.setAttribute('style', 'background-color : '+colorInput+'');
