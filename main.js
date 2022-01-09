@@ -8,6 +8,7 @@ var colorCounter = false;
 
 //  Select pixel canvas
 var pixelCanvas = document.querySelector('#pixelCanvas');
+var modeButton = document.querySelector(".material-icons");
 
 function makeGrid(event) {
     event.preventDefault();
@@ -58,6 +59,12 @@ function colorGrid(action){
     submitButton.addEventListener('click', makeGrid);
 }
 
+function mode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+}
+
 
 submitButton.addEventListener('click', makeGrid);
 pixelCanvas.addEventListener('click', colorGrid);
+modeButton.addEventListener('click', mode);
