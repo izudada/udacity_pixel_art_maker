@@ -60,6 +60,11 @@ function colorGrid(action){
 }
 
 function mode() {
+    /*
+        * @desc adds classes to body and grid table data
+        * @param str $body - gets the body element
+        * @param str $tableData - gets an array of table datas when grid exists
+    */
     var body = document.body;
     var tableData = document.querySelectorAll("td")
     body.classList.toggle("dark-mode");
