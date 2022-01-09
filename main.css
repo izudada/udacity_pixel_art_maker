@@ -64,3 +64,31 @@ tr {
 td {
     width: 20px;
 }
+
+@media screen and (min-width: 500px) {
+    #pixelForm,
+    input,
+    label{
+        font-size: 16pt;
+    }
+
+    form{
+        width:70%;
+    }
+}
+
+@media screen and (min-width: 590px) {
+    h1{
+        font-size: 35pt;
+    }
+
+    #pixelForm,
+    input,
+    label{
+        font-size: 12pt;
+    }
+
+    form{
+        width: 80%;
+    }
+}
