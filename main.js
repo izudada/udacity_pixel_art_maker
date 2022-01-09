@@ -60,8 +60,12 @@ function colorGrid(action){
 }
 
 function mode() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
+    var body = document.body;
+    var tableData = document.querySelectorAll("td")
+    body.classList.toggle("dark-mode");
+    tableData.forEach(td => {
+        td.classList.toggle("table-data");
+    });
 }
 
 
