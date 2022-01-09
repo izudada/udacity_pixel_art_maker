@@ -68,6 +68,7 @@ td {
 .dark-mode {
     background-color: black;
     color: white;
+    transition: .9s ease-in-out;
 }
 
 .material-icons{
